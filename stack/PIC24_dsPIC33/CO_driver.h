@@ -52,8 +52,10 @@
 /* For documentation see file drvTemplate/CO_driver.h */
 
 
-#if defined(__dsPIC33F__) || defined(__PIC24H__)
+#if defined(__dsPIC33F__)
 #include <p33Fxxxx.h>       /* processor header file */
+#elif defined(__PIC24H__)
+#include <p24Hxxxx.h>
 #elif defined(__dsPIC33E__) || defined(__PIC24E__)
 #include <p33Exxxx.h>       /* processor header file */
 #endif
