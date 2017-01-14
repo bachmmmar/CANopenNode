@@ -167,7 +167,7 @@ typedef struct{
 
 
 /* Helper function, must be defined externally. */
-void CO_errExit(char* msg);
+void CO_errExit(const char* msg);
 
 
 /* Request CAN configuration or normal mode */

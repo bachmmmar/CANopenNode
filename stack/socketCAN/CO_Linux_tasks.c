@@ -36,7 +36,7 @@
 
 
 /* External helper function ***************************************************/
-void CO_errExit(char* msg);
+void CO_errExit(const char* msg);
 void CO_error(const uint32_t info);
 
 
