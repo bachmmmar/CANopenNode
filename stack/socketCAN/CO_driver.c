@@ -303,7 +303,7 @@ CO_CANtx_t *CO_CANtxBufferInit(
 CO_ReturnError_t CO_CANsend(CO_CANmodule_t *CANmodule, CO_CANtx_t *buffer){
     CO_ReturnError_t err = CO_ERROR_NO;
     ssize_t n;
-    size_t count = sizeof(struct can_frame);
+    ssize_t count = (ssize_t)sizeof(struct can_frame);
 
     n = write(CANmodule->fd, buffer, count);
 #ifdef CO_LOG_CAN_MESSAGES
@@ -420,7 +420,7 @@ void CO_CANrxWait(CO_CANmodule_t *CANmodule){
 
             /* Search rxArray form CANmodule for the matching CAN-ID. */
             buffer = &CANmodule->rxArray[0];
-            for(i = CANmodule->rxSize; i > 0U; i--){
+            for(i = (int)CANmodule->rxSize; i > 0; i--){
                 if(((rcvMsgIdent ^ buffer->ident) & buffer->mask) == 0U){
                     msgMatched = true;
                     break;
